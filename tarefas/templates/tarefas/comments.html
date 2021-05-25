@@ -24,9 +24,9 @@
                 <div style="margin-bottom: 2%" class="card p-3">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="user d-flex flex-row align-items-center"><span><small
-                                class="font-weight-bold text-warning">User X</small> <small
+                                class="font-weight-bold text-warning">{{ comment.userName }}</small> <small
                                 class="font-weight-bold">{{ comment.message }}</small></span></div>
-                        <small>Time</small>
+                        <small>{{ comment.postedTime }}</small>
                     </div>
                 </div>
             {% endfor %}
