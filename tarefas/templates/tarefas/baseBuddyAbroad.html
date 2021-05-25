@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Aluno1, Aluno2">
+    <meta name="keywords" content="Buddy Abroad, Buddy Abroad Guide, Buddy Abroad Tourist, Turismo, Aplicação">
+    <meta name="description" content="Landing Page Buddy Abroad">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddy Abroad</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="{% static 'tarefas/images/favicon.ico' %}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/951a2c1a96.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tarefas/baseBuddyAbroad.css' %}">
+</head>
+
+<body>
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand mb-0 h1" href="{% url 'tarefas:banner' %}">Buddy Abroad</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'tarefas:aboutBA' %}">
+                            <i class="fas fa-map-marked-alt"></i> About Buddy Abroad
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'tarefas:team' %}">
+                            <i class="fas fa-user-friends"></i> Team
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'tarefas:tutorial' %}">
+                            <i class="fas fa-mobile-alt"></i> Tutorial
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'tarefas:faq' %}">
+                            <i class="far fa-question-circle"></i> F.A.Q
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'tarefas:contacts' %}">
+                            <i class="fas fa-envelope"></i> Contact Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'tarefas:aval' %}">
+                            <i class="fas fa-clipboard-check"></i> Avaliação
+                        </a>
+                    </li>
+                    {% block navList %}
+
+                    {% endblock %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<main>
+    {% block main %}
+
+    {% endblock %}
+</main>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{% extends 'tarefas/baseBuddyAbroad.html' %}
+{% load static %}
+
+{% block main %}
+
+    <section style="padding-top: 60px;text-align: center;">
+        <h2>Tutorial</h2>
+        <p>Find out how to get the most of the Buddy Abroad app</p>
+    </section>
+
+    <section style="padding-top: 40px;" class="tutorial">
+        <ul>
+            <li>
+                <div>
+                    <img class="phoneMockUp" src="{% static 'tarefas/images/home.png' %}">
+                </div>
+                <h4 style="text-align: center;">Home</h4>
+                <p>In the Home screen you can see tours available near you and the top rated ones! Click the one
+                    that catches your attention, and find out more about it.
+                </p>
+            </li>
+
+            <li>
+                <div>
+                    <img class="phoneMockUp" src="{% static 'tarefas/images/search.png' %}">
+                </div>
+                <h4 style="text-align: center;">Search</h4>
+                <p>Here you can search for the perfect tour to enjoy during your stay.
+                </p>
+            </li>
+
+            <li>
+                <div>
+                    <img class="phoneMockUp" src="{% static 'tarefas/images/details.png' %}">
+                </div>
+                <h4 style="text-align: center;">Tour</h4>
+                <p>After choosing the desired tour, this screen allows you to find out more about it. In this screen
+                    you
+                    can discover the tour's details such as, it's duration, group size, languages available
+                    and many more aspects of the tour.
+                </p>
+            </li>
+
+            <li>
+                <div>
+                    <img class="phoneMockUp" src="{% static 'tarefas/images/bookings.png' %}">
+                </div>
+                <h4 style="text-align: center;">Bookings</h4>
+                <p>In the bookings tab you are able to perceive your bookings in a well organized agenda. You can
+                    quickly see
+                    the date and time of all booked tours and find out more about them by clicking the chosen tour.
+                </p>
+            </li>
+
+            <li>
+                <div>
+                    <img class="phoneMockUp" src="{% static 'tarefas/images/create.png' %}">
+                </div>
+                <h4 style="text-align: center;">Tour Creation</h4>
+                <p>In the Guide app you can create Tours in the create tab. Choose a title and a picture that best
+                    describe your tour and finish the creation process by filling out the rest of it's details.</p>
+            </li>
+
+            <li>
+                <div>
+                    <img class="phoneMockUp" src="{% static 'tarefas/images/profile.png' %}">
+                </div>
+                <h4 style="text-align: center;">Profile</h4>
+                <p>Create your profile in the profile tab and share with the rest of the users a few words about
+                    yourself, here you can also see your rating given by the tourist or guides depending if your a
+                    Guide or a Tourist.</p>
+            </li>
+
+        </ul>
+    </section>
+{% endblock %}
+

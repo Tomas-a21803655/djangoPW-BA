@@ -1,0 +1,297 @@
+{% extends 'tarefas/baseBuddyAbroad.html' %}
+{% load static %}
+
+{% block navList %}
+    <li class="nav-item">
+        <a class="nav-link active" href="{% url 'tarefas:aval' %}">
+            <i class="fas fa-arrow-left"></i></i>   Voltar
+        </a>
+    </li>
+{% endblock %}
+
+{% block main %}
+    <section id="index" class="imageBackground">
+        <section class="bannerIndex">
+            <h1><span style="font-size: 2rem;">Your personal tour guide<br></span>Upgrade your<br>travelling
+                experience
+            </h1>
+            <article>
+                <p>Download the Buddy Abroad Tourist or Guide app on
+                    Google
+                    Play & App Store and travel like never before. Discover genuine, unique, and bespoke experiences
+                    or
+                    host them as a guide. <a style="color: white;text-decoration: underline;
+                    " href="#aboutBA">Find out more</a></p>
+                <a href="https://play.google.com/store/apps"><img class="storeIcons"
+                                                                  src="{% static 'tarefas/images/googlePlay.png' %}"></a>
+                <a href="https://www.apple.com/pt/"><img class="storeIcons"
+                                                         src="{% static 'tarefas/images/App-Store-Button-PNG.png' %}"></a>
+            </article>
+        </section>
+    </section>
+
+    <section id="aboutBA" style="padding-top: 60px;text-align: center;">
+        <h2>About Buddy Abroad</h2>
+        <p>What are we offering?</p>
+    </section>
+
+    <section style="padding-top: 40px;" class="aboutBa">
+        <ul>
+            <li>
+                <div style="text-align: center;">
+                    <i style="font-size: 100px;color: #feaa00;" class="fas fa-lightbulb"></i>
+                </div>
+                <p>
+                    Tired of conventional travelling?
+                    Experience the future of guided tours and make meaningful
+                    connections with locals on your travels.
+                </p>
+            </li>
+
+            <li>
+                <div style="text-align: center;">
+                    <i style="font-size: 100px;color: #feaa00;" class="fas fa-camera"></i>
+                </div>
+                <p>
+                    Choose the perfect tour from our endless selection.
+                </p>
+            </li>
+
+            <li>
+                <div style="text-align: center;">
+                    <i style="font-size: 100px;color: #feaa00;" class="fas fa-head-side-mask"></i>
+                </div>
+                <p>
+                    Regulated group sizes for a safer Experience.
+                </p>
+            </li>
+
+            <li>
+                <div style="text-align: center;">
+                    <i style="font-size: 100px;color: #feaa00;" class="fas fa-cut"></i>
+                </div>
+                <p>
+                    Having trouble deciding between tours or want to change something to your liking? Try our
+                    personalized tour system.
+                </p>
+            </li>
+
+            <li>
+                <div style="text-align: center;">
+                    <i style="font-size: 100px;color: #feaa00;" class="fas fa-user-friends"></i>
+                </div>
+                <p>
+                    Connect with local guides as they show you around and who knows? Maybe you'll make a Buddy
+                    Abroad.
+                </p>
+            </li>
+
+            <li>
+                <div style="text-align: center;">
+                    <i style="font-size: 100px;color: #feaa00;" class="fas fa-hand-holding-usd"></i>
+                </div>
+                <p>
+                    Sign up as a local and make extra money showcasing your city.
+                </p>
+            </li>
+
+        </ul>
+    </section>
+
+    <section id="aboutUs" style="padding-top: 60px;text-align: center;">
+        <h2>About the Team</h2>
+        <p>Get to know us</p>
+    </section>
+
+    <section class="sectionStyle">
+        <div class="us">
+            <div class="aluno">
+                <div class="aluno_image">
+                    <img src="{% static 'tarefas/images/personMockUp1.jpg' %}" alt="us">
+                </div>
+                <h3>Aluno 1</h3>
+                <span>Developer</span>
+                <p>
+                <li><a href="https://www.linkedin.com"><i style="color: black;"
+                                                          class="fab fa-linkedin"></i>aluno1</a></li>
+                <li><a href="https://www.instagram.com"><i style="color: black;"
+                                                           class="fab fa-instagram"></i>@aluno1</a></li>
+                </p>
+            </div>
+            <div class="aluno">
+                <div class="aluno_image">
+                    <img src="{% static 'tarefas/images/personMockUp2.jpg' %}" alt="us">
+                </div>
+                <h3>Aluno 2</h3>
+                <span>Developer</span>
+                <p>
+                <li><a href="https://www.linkedin.com"><i style="color: black;"
+                                                          class="fab fa-linkedin"></i>aluno2</a></li>
+                <li><a href="https://www.instagram.com"><i style="color: black;"
+                                                           class="fab fa-instagram"></i>@aluno2</a></li>
+                </p>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="tutorial" style="padding-top: 60px;text-align: center;">
+        <h2>Tutorial</h2>
+        <p>Find out how to get the most of the Buddy Abroad app</p>
+    </section>
+
+    <section style="padding-top: 40px;" class="tutorial">
+        <ul>
+            <li>
+                <div style="text-align: center;">
+                    <img class="phoneMockUp" src="{% static 'tarefas/images/home.png' %}">
+                </div>
+                <h4 style="text-align: center;">Home</h4>
+                <p>In the Home screen you can see tours available near you and the top rated ones! Click the one
+                    that catches your attention, and find out more about it.
+                </p>
+            </li>
+
+            <li>
+                <div style="text-align: center;">
+                    <img class="phoneMockUp" src="{% static 'tarefas/images/search.png' %}">
+                </div>
+                <h4 style="text-align: center;">Search</h4>
+                <p>Here you can search for the perfect tour to enjoy during your stay.
+                </p>
+            </li>
+
+            <li>
+                <div style="text-align: center;">
+                    <img class="phoneMockUp" src="{% static 'tarefas/images/details.png' %}">
+                </div>
+                <h4 style="text-align: center;">Tour</h4>
+                <p>After choosing the desired tour, this screen allows you to find out more about it. In this screen
+                    you
+                    can discover the tour's details such as, it's duration, group size, languages available
+                    and many more aspects of the tour.
+                </p>
+            </li>
+
+            <li>
+                <div style="text-align: center;">
+                    <img class="phoneMockUp" src="{% static 'tarefas/images/bookings.png' %}">
+                </div>
+                <h4 style="text-align: center;">Bookings</h4>
+                <p>In the bookings tab you are able to perceive your bookings in a well organized agenda. You can
+                    quickly see
+                    the date and time of all booked tours and find out more about them by clicking the chosen tour.
+                </p>
+            </li>
+
+            <li>
+                <div style="text-align: center;">
+                    <img class="phoneMockUp" src="{% static 'tarefas/images/create.png' %}">
+                </div>
+                <h4 style="text-align: center;">Tour Creation</h4>
+                <p>In the Guide app you can create Tours in the create tab. Choose a title and a picture that best
+                    describe your tour and finish the creation process by filling out the rest of it's details.</p>
+            </li>
+
+            <li>
+                <div style="text-align: center;">
+                    <img class="phoneMockUp" src="{% static 'tarefas/images/profile.png' %}">
+                </div>
+                <h4 style="text-align: center;">Profile</h4>
+                <p>Create your profile in the profile tab and share with the rest of the users a few words about
+                    yourself, here you can also see your rating given by the tourist or guides depending if your a
+                    Guide or a Tourist.</p>
+            </li>
+
+        </ul>
+    </section>
+
+    <section id="faq" style="padding-top: 60px;text-align: center;">
+        <h2>Frequently Asked Questions</h2>
+        <p>How can we help you?</p>
+    </section>
+
+    <section class="containerFAQ">
+        <section class="perguntas">
+            <details class="pergunta">
+                <summary class="perguntas_title">Where do I download Buddy Abroad?</summary>
+                <p class="perguntas_resposta">Android App - <a href="https://play.google.com/store/apps">Google
+                    Play</a><br>iOS App - <a href="https://www.apple.com/pt/">App Store</a></p>
+            </details>
+
+            <details class="pergunta">
+                <summary class="perguntas_title">Why should I install Buddy Abroad?</summary>
+                <p class="perguntas_resposta">Buddy Abroad aims to provide a platform to those who are tired of
+                    conventional tours. Join our community to engage in unique and meaningful experiences whether
+                    your a guide, by creating tours on our Buddy Abroad Guide App or a tourist by Purchasing tours
+                    on our
+                    Buddy Abroad Tourist App.</p>
+            </details>
+
+            <details class="pergunta">
+                <summary class="perguntas_title">How can I be a Buddy Abroad guide?</summary>
+                <p class="perguntas_resposta">You can join our guide community by installing the Buddy Abroad Guide
+                    app, filling the sign up form and you can now start creating tours!</p>
+            </details>
+
+            <details class="pergunta">
+                <summary class="perguntas_title">How much do I get paid as a guide?</summary>
+                <p class="perguntas_resposta">You will receive 70% of the price you established for your tour. We
+                    will take care of everything for you so you can focus on the experience.</p>
+            </details>
+
+            <details class="pergunta">
+                <summary class="perguntas_title">My question in not here</summary>
+                <p class="perguntas_resposta">No problem! You can send us a <a href="contacts.html">message.</a></p>
+            </details>
+
+        </section>
+    </section>
+
+    <section id="contacts" style="padding-top: 60px;text-align: center;">
+        <h2>Talk to Us</h2>
+        <p>Want to report a bug? Would you like a specific feature? Tell us all about it!</p>
+    </section>
+
+    <section>
+        <div class="containerForm">
+            <form id="quizz" method="POST" enctype="text/plain" action="mailto:tomasccruz141@gmail.com">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="ex. John Doe">
+
+                <label for="email">Email <span style="color: red;">*</span></label>
+                <input type="email" id="email" name="email" placeholder="ex. john.doe@mail.com" required>
+
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject">
+                    <option value="other">Other</option>
+                    <option value="bug">Report a Bug</option>
+                    <option value="request">Feature Request</option>
+                </select>
+
+                <label for="message">Message <span style="color: red;">*</span></label>
+                <textarea id="message" name="message" placeholder="Write us a message!" style="height:200px"
+                          required></textarea>
+
+                <input type="submit" value="Send message">
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <section style="text-align: center;">
+            <h2>Follow our social media</h2>
+        </section>
+        <section style="padding-bottom: 50px;">
+            <p style="text-align: center;">
+                <a href="https://www.facebook.com/"><img class="socials" src="{% static 'tarefas/images/fb.jpg' %}"></a>
+                <a href="https://www.instagram.com/"><img class="socials"
+                                                          src="{% static 'tarefas/images/instagram.png' %}"></a>
+                <a href="https://www.linkedin.com/"><img class="socials"
+                                                         src="{% static 'tarefas/images/linkedin.png' %}"></a>
+            </p>
+        </section>
+    </footer>
+{% endblock %}
+

@@ -1,0 +1,43 @@
+{% extends 'tarefas/baseBuddyAbroad.html' %}
+{% load static %}
+
+{% block main %}
+    <section style="padding-top: 60px;text-align: center;">
+        <h2>About the Team</h2>
+        <p>Get to know us</p>
+    </section>
+
+    <section class="sectionStyle">
+        <div class="us">
+            <div class="aluno">
+                <div class="aluno_image">
+                    <img src="{% static 'tarefas/images/personMockUp1.jpg' %}" alt="us">
+                </div>
+                <h3>Aluno 1</h3>
+                <span>Developer</span>
+                <p>
+                <li><a href="https://www.linkedin.com"><i style="color: black;"
+                                                          class="fab fa-linkedin"></i> aluno1</a></li>
+                <li><a href="https://www.instagram.com"><i style="color: black;"
+                                                           class="fab fa-instagram"></i> @aluno1</a></li>
+                </p>
+            </div>
+            <div class="aluno">
+                <div class="aluno_image">
+                    <img src="{% static 'tarefas/images/personMockUp2.jpg' %}" alt="us">
+                </div>
+                <h3>Aluno 2</h3>
+                <span>Developer</span>
+                <p>
+                <li><a href="https://www.linkedin.com"><i style="color: black;"
+                                                          class="fab fa-linkedin"></i> aluno2</a></li>
+                <li><a href="https://www.instagram.com"><i style="color: black;"
+                                                           class="fab fa-instagram"></i> @aluno2</a></li>
+                </p>
+            </div>
+
+
+        </div>
+    </section>
+{% endblock %}
+
