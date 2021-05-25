@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Tarefa, Contact
+from .models import Tarefa, Contact, Comment
 
 
 class TarefaForm(ModelForm):
@@ -38,4 +38,14 @@ class ContactForm(ModelForm):
             'birthday': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'subject': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. Found a bug'}),
             'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write your message here'}),
+        }
+
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        fields = '__all__'
+
+        widgets = {
+            'comment': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Tell us what you’re thinking'}),
         }

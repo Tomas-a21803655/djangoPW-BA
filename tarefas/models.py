@@ -23,4 +23,11 @@ class Contact(models.Model):
     message = models.TextField(max_length=400, blank=False, default='')
 
     def __str__(self):
-        return self.name[:50]
+        return self.email[:50]
+
+
+class Comment(models.Model):
+    message = models.TextField(max_length=400, blank=False, default='')
+
+    def __str__(self):
+        return self.message[:50]

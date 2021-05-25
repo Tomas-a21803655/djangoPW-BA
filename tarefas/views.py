@@ -3,8 +3,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import Tarefa
-from .forms import TarefaForm, ContactForm
+from .models import Tarefa, Comment
+from .forms import TarefaForm, ContactForm, CommentForm
 
 
 # Create your views here.
@@ -83,3 +83,14 @@ def aval_page_view(request):
 
 def singlePageView_page_view(request):
     return render(request, 'tarefas/singlePageView.html')
+
+
+def comments_page_view(request):
+    form = CommentForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('tarefas:comments'))
+
+    context = {'form': form, 'comments': Comment.objects.all()}
+
+    return render(request, 'tarefas/comments.html', context)
