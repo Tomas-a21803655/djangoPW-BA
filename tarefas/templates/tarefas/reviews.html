@@ -18,8 +18,13 @@
         <p>Write about it!</p>
     </section>
 
-    <section class="containerForm">
-
+    <section style="padding: 20px 48px 0px;margin: 2% 5%;border-radius: 2%;background-color: #f2f2f2;">
+        {% if comments %}
+            <h2 style="text-align: center;">{{ averageStars }} <i class="text-warning fa fa-star"></i></h2>
+        {% else %}
+            <h2 style="text-align: center;">No reviews for graph building</h2>
+            <br>
+        {% endif %}
     </section>
 
     <section style="padding: 20px 48px 0px;margin: 2% 5%;border-radius: 2%;background-color: #f2f2f2;">

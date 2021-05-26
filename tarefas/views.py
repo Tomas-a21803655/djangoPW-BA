@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.db.models import Avg
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -85,12 +86,14 @@ def singlePageView_page_view(request):
     return render(request, 'tarefas/singlePageView.html')
 
 
-def comments_page_view(request):
+def reviews_page_view(request):
     form = CommentForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('tarefas:comments'))
+        return HttpResponseRedirect(reverse('tarefas:reviews'))
 
-    context = {'form': form, 'comments': Comment.objects.all()}
+    average = list(Comment.objects.aggregate(Avg('rating')).values())[0] or 0
+
+    context = {'form': form, 'comments': Comment.objects.all(), 'averageStars': round(average, 1)}
 
     return render(request, 'tarefas/reviews.html', context)

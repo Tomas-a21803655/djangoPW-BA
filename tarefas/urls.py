@@ -19,6 +19,6 @@ urlpatterns = [
     path('contacts/', views.contacts_page_view, name='contacts'),
     path('aval/', views.aval_page_view, name='aval'),
     path('singlePageView/', views.singlePageView_page_view, name='singlePageView'),
-    path('comments/', views.comments_page_view, name='comments'),
+    path('reviews/', views.reviews_page_view, name='reviews'),
 
 ]
