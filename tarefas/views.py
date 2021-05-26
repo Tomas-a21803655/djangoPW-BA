@@ -94,6 +94,19 @@ def reviews_page_view(request):
 
     average = list(Comment.objects.aggregate(Avg('rating')).values())[0] or 0
 
-    context = {'form': form, 'comments': Comment.objects.all(), 'averageStars': round(average, 1)}
+    starRatings0 = Comment.objects.filter(rating=1).count()
+    starRatings1 = Comment.objects.filter(rating=2).count()
+    starRatings2 = Comment.objects.filter(rating=3).count()
+    starRatings3 = Comment.objects.filter(rating=4).count()
+    starRatings4 = Comment.objects.filter(rating=5).count()
+
+    context = {'form': form, 'comments': Comment.objects.all(), 'averageStars': round(average, 1),
+               'starRatings0': starRatings0,
+               'starRatings1': starRatings1,
+               'starRatings2': starRatings2,
+               'starRatings3': starRatings3,
+               'starRatings4': starRatings4,
+               'reviewCount': Comment.objects.count(),
+               }
 
     return render(request, 'tarefas/reviews.html', context)
