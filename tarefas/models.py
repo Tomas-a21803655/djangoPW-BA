@@ -27,9 +27,10 @@ class Contact(models.Model):
 
 
 class Comment(models.Model):
-    userName = models.CharField(max_length=200, blank=True)
-    message = models.TextField(max_length=400, blank=False, default='')
+    name = models.CharField(max_length=200, blank=False)
+    rating = models.IntegerField(blank=False, default='5')
+    comment = models.TextField(max_length=400, blank=False, default='')
     postedTime = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.message[:50]
+        return self.name[:50]

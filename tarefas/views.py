@@ -93,4 +93,4 @@ def comments_page_view(request):
 
     context = {'form': form, 'comments': Comment.objects.all()}
 
-    return render(request, 'tarefas/comments.html', context)
+    return render(request, 'tarefas/reviews.html', context)
