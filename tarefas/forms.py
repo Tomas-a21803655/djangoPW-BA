@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Tarefa, Contact, Comment, Quizz
+from .models import Tarefa, Contact, Comment, Quizz, Networking
 
 
 class TarefaForm(ModelForm):
@@ -81,4 +81,20 @@ class QuizzForm(ModelForm):
 
         help_texts = {
             'satisfaction': 'Scale from 0 to 10',
+        }
+
+
+class NetworkingForm(ModelForm):
+    class Meta:
+        model = Networking
+        fields = '__all__'
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. John'}),
+            'surname': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. Doe'}),
+            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. johndoe@mail.com'}),
+            'phone': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'ex. 910000000'}),
+            'birthday': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'typeOfUser': forms.NullBooleanSelect(),
+
         }

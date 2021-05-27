@@ -4,8 +4,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import Tarefa, Comment
-from .forms import TarefaForm, ContactForm, CommentForm, QuizzForm
+from .models import Tarefa, Comment, Networking
+from .forms import TarefaForm, ContactForm, CommentForm, QuizzForm, NetworkingForm
 
 
 # Create your views here.
@@ -122,3 +122,20 @@ def quizz_page_view(request):
     context = {'form': form}
 
     return render(request, 'tarefas/quizz.html', context)
+
+
+def networking_page_view(request):
+    context = {'users': Networking.objects.all()}
+
+    return render(request, 'tarefas/networking.html', context)
+
+
+def networkingAddUser_page_view(request):
+    form = NetworkingForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('tarefas:networking'))
+
+    context = {'form': form, 'users': Networking.objects.all()}
+
+    return render(request, 'tarefas/networkingAddUser.html', context)

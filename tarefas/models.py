@@ -48,9 +48,19 @@ class Quizz(models.Model):
 
     image = models.FileField(blank=True, null=True)
 
-
-
-
-
     def __str__(self):
         return self.description[:50]
+
+
+class Networking(models.Model):
+    name = models.CharField(max_length=200, blank=True)
+    surname = models.CharField(max_length=200, blank=True)
+    email = models.CharField(max_length=254, default='', blank=False)
+    phone = models.IntegerField(blank=True, null=True)
+    birthday = models.DateField(null=True, blank=True)
+
+    choices = ((True, 'Guide'), (False, 'Tourist'))
+    typeOfUser = models.BooleanField(choices=choices, default=False)
+
+    def __str__(self):
+        return self.name[:50]
