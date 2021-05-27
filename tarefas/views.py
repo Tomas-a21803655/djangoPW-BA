@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from .models import Tarefa, Comment
-from .forms import TarefaForm, ContactForm, CommentForm
+from .forms import TarefaForm, ContactForm, CommentForm, QuizzForm
 
 
 # Create your views here.
@@ -110,3 +110,15 @@ def reviews_page_view(request):
                }
 
     return render(request, 'tarefas/reviews.html', context)
+
+
+def quizz_page_view(request):
+    form = QuizzForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Quizz Completed!')
+        return HttpResponseRedirect(reverse('tarefas:quizz'))
+
+    context = {'form': form}
+
+    return render(request, 'tarefas/quizz.html', context)

@@ -20,5 +20,6 @@ urlpatterns = [
     path('aval/', views.aval_page_view, name='aval'),
     path('singlePageView/', views.singlePageView_page_view, name='singlePageView'),
     path('reviews/', views.reviews_page_view, name='reviews'),
+    path('quizz/', views.quizz_page_view, name='quizz'),
 
 ]

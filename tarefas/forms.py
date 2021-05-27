@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Tarefa, Contact, Comment
+from .models import Tarefa, Contact, Comment, Quizz
 
 
 class TarefaForm(ModelForm):
@@ -52,3 +52,33 @@ class CommentForm(ModelForm):
             'comment': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Tell us what you’re thinking'}),
         }
 
+
+class QuizzForm(ModelForm):
+    class Meta:
+        model = Quizz
+        fields = '__all__'
+
+        widgets = {
+            'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. Joyful'}),
+            'satisfaction': forms.TextInput(attrs={'class': 'form-control', 'type': 'range', 'min': '0', 'max': '10'}),
+            'destination': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. Portugal'}),
+            'visitDate': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'groupSize': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'ex. 2'}),
+            'useAgain': forms.NullBooleanSelect(),
+            'image': forms.FileInput(attrs={'class': 'form-control'}),
+
+        }
+
+        labels = {
+            'description': 'Describe your experience',
+            'satisfaction': 'Overall satisfaction',
+            'visitDate': 'When?',
+            'groupSize': 'How many people did you travel with?',
+            'useAgain': 'Would you use buddy abroad again?',
+            'image': 'Send us a picture!',
+
+        }
+
+        help_texts = {
+            'satisfaction': 'Scale from 0 to 10',
+        }

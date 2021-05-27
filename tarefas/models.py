@@ -34,3 +34,23 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.name[:50]
+
+
+class Quizz(models.Model):
+    description = models.CharField(max_length=200, blank=False)
+    satisfaction = models.IntegerField(blank=False, default='5')
+    destination = models.CharField(max_length=200, blank=False)
+    visitDate = models.DateField(null=True, blank=True)
+    groupSize = models.IntegerField(blank=True, null=True)
+
+    BOOL_CHOICES = ((True, 'Yes'), (False, 'No'))
+    useAgain = models.BooleanField(choices=BOOL_CHOICES)
+
+    image = models.FileField(blank=True, null=True)
+
+
+
+
+
+    def __str__(self):
+        return self.description[:50]
