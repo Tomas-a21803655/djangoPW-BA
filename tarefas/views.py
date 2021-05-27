@@ -125,7 +125,8 @@ def quizz_page_view(request):
 
 
 def networking_page_view(request):
-    context = {'users': Networking.objects.all()}
+    context = {'usersGuide': Networking.objects.all().filter(typeOfUser=True),
+               'usersTourist': Networking.objects.all().filter(typeOfUser=False)}
 
     return render(request, 'tarefas/networking.html', context)
 
@@ -136,6 +137,6 @@ def networkingAddUser_page_view(request):
         form.save()
         return HttpResponseRedirect(reverse('tarefas:networking'))
 
-    context = {'form': form, 'users': Networking.objects.all()}
+    context = {'form': form}
 
     return render(request, 'tarefas/networkingAddUser.html', context)
