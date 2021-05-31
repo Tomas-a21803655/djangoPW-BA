@@ -1,0 +1,35 @@
+{% extends 'tarefas/baseBuddyAbroad.html' %}
+{% load static %}
+
+{% block main %}
+
+    <style>
+        .logOutb {
+            display: block;
+            width: 100%;
+            border: none;
+            background-color: #feaa00;
+            color: white;
+            border-radius: 10px;
+            padding: 14px 28px;
+            font-size: 18px;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
+
+    <section style="padding-top: 60px;text-align: center;">
+        <h2>Welcome, {{ request.user.first_name }}</h2>
+        <p>Username: {{ request.user.username }}</p>
+        <p>Email: {{ request.user.email }}</p>
+    </section>
+
+    <section class="containerForm">
+
+        <a href="{% url 'users:logout' %}">
+            <button type="button" class="logOutb"> Logout</button>
+        </a>
+
+    </section>
+
+{% endblock %}
