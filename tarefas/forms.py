@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Tarefa, Contact, Comment, Quizz, Networking
+from .models import Tarefa, Contact, Comment, Quizz, Networking, QuizzAval
 
 
 class TarefaForm(ModelForm):
@@ -97,4 +97,22 @@ class NetworkingForm(ModelForm):
             'birthday': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'typeOfUser': forms.NullBooleanSelect(),
 
+        }
+
+
+class QuizzAvalForm(ModelForm):
+    class Meta:
+        model = QuizzAval
+        fields = '__all__'
+
+        widgets = {
+            'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. Joyful'}),
+            'numberOfApps': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'ex. 9000'}),
+            'availablePlataforms': forms.NullBooleanSelect(),
+        }
+
+        labels = {
+            'description': 'Describe your experience',
+            'numberOfApps': 'Quantas aplicações tem o Buddy Abroad?',
+            'availablePlataforms': 'O Buddy Abroad está disponível em iOS e Android?',
         }

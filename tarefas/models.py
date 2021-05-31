@@ -64,3 +64,14 @@ class Networking(models.Model):
 
     def __str__(self):
         return self.name[:50]
+
+
+class QuizzAval(models.Model):
+    description = models.CharField(max_length=200, blank=False)
+    numberOfApps = models.IntegerField(blank=True, null=True)
+
+    BOOL_CHOICES = ((True, 'Sim'), (False, 'Não'))
+    availablePlataforms = models.BooleanField(choices=BOOL_CHOICES)
+
+    def __str__(self):
+        return self.availablePlataforms[:50]

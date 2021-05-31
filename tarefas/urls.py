@@ -22,5 +22,6 @@ urlpatterns = [
     path('quizz/', views.quizz_page_view, name='quizz'),
     path('networking/', views.networking_page_view, name='networking'),
     path('networkingAddUser/', views.networkingAddUser_page_view, name='networkingAddUser'),
+    path('quizzAval/', views.quizzAval_page_view, name='quizzAval'),
 
 ]

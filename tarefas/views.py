@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from .models import Tarefa, Comment, Networking
-from .forms import TarefaForm, ContactForm, CommentForm, QuizzForm, NetworkingForm
+from .forms import TarefaForm, ContactForm, CommentForm, QuizzForm, NetworkingForm, QuizzAvalForm
 
 
 # Create your views here.
@@ -119,7 +119,7 @@ def quizz_page_view(request):
         messages.success(request, 'Quizz Completed!')
         return HttpResponseRedirect(reverse('tarefas:quizz'))
 
-    context = {'form': form,}
+    context = {'form': form, }
 
     return render(request, 'tarefas/quizz.html', context)
 
@@ -140,3 +140,15 @@ def networkingAddUser_page_view(request):
     context = {'form': form}
 
     return render(request, 'tarefas/networkingAddUser.html', context)
+
+
+def quizzAval_page_view(request):
+    form = QuizzAvalForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Quizz Completed!')
+        return HttpResponseRedirect(reverse('tarefas:quizzAval'))
+
+    context = {'form': form, }
+
+    return render(request, 'tarefas/quizzAval.html', context)
