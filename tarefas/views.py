@@ -119,7 +119,7 @@ def quizz_page_view(request):
         messages.success(request, 'Quizz Completed!')
         return HttpResponseRedirect(reverse('tarefas:quizz'))
 
-    context = {'form': form}
+    context = {'form': form,}
 
     return render(request, 'tarefas/quizz.html', context)
 

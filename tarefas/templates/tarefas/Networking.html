@@ -44,15 +44,21 @@
     <section class="containerForm">
         <h3 style="text-align: left">Guides</h3>
         <hr style="opacity: 10%">
-        <div id="guideCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div id="guideCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{% static 'tarefas/images/guide.jpg' %}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption">
+                        <h5>Guide contact card</h5>
+                        <p>Press the profile creation button and set up your guide contact card!</p>
+                    </div>
                 </div>
                 {% for userGuide in usersGuide %}
                     <div class="carousel-item">
-                        <p> {{ userGuide.name }}</p>
                         <img src="{% static 'tarefas/images/personMockUp1.jpg' %}" class="d-block w-100" alt="...">
+                        <div class="carousel-caption">
+                            <h5>{{ userGuide.name }} {{ userGuide.surname }}</h5>
+                            <p>Contact me at: {{ userGuide.email }}</p>
+                        </div>
                     </div>
                 {% endfor %}
             </div>
@@ -72,15 +78,21 @@
     <section class="containerForm">
         <h3 style="text-align: left">Tourists</h3>
         <hr style="opacity: 10%">
-        <div id="touristCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div id="touristCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{% static 'tarefas/images/eifieltower.jfif' %}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption">
+                        <h5>Tourist contact card</h5>
+                        <p>Press the profile creation button and set up your tourist contact card!</p>
+                    </div>
                 </div>
                 {% for userTourist in usersTourist %}
                     <div class="carousel-item">
-                        <p> {{ userTourist.name }}</p>
                         <img src="{% static 'tarefas/images/personMockUp1.jpg' %}" class="d-block w-100" alt="...">
+                        <div class="carousel-caption ">
+                            <h5>{{ userTourist.name }} {{ userTourist.surname }}</h5>
+                            <p>Contact me at: {{ userTourist.email }}</p>
+                        </div>
                     </div>
                 {% endfor %}
             </div>
