@@ -157,8 +157,20 @@ def quizzAval_page_view(request):
 def quizzAvalResults_page_view(request, quizzAval_id):
     quizzAnswer = QuizzAval.objects.get(id=quizzAval_id)
 
-    correctAnswers = ['column', 'tantoFaz', 2, 30, 'sim', 2, 2, 'sim', 'trabalho final de curso', 'entre6a12']
-    correctThick = [False] * 11
+    questionsAndAnswer = {
+        "Qual é o layout utilizado neste website?(1pt)": "column",
+        "Quantas aplicações compõem o Buddy Abroad?(1pt)": "tantoFaz",
+        "O Buddy Abroad está disponível em iOS e Android?(1pt": 2,
+        "O Buddy Abroad cobra quanto % de taxa?(1pt)": 30,
+        "Posso ser um guia Buddy Abroad se conhecer bem a minha cidade?(1pt)": "sim",
+        "Quantos alunos trabalharam no Buddy Abroad?(1pt)": 2,
+        "Quantas animações existem neste projecto?(1pt)": 2,
+        "Existe algum output de audio neste website?(1pt)": "sim",
+        "Em que disciplina começou o projecto Buddy Abroad?(1pt)": "trabalho final de curso",
+        "Acha que foi difícil desenvolver este projecto? (estimativa)(1pt)": "entre 6 a 12",
+    }
+
+    correctThick = [False] * 10
     correctThick[0] = True if quizzAnswer.layout == 'column' else False
     correctThick[1] = True
     correctThick[2] = True if quizzAnswer.numberOfApps == 2 else False
@@ -171,6 +183,7 @@ def quizzAvalResults_page_view(request, quizzAval_id):
     correctThick[9] = True if quizzAnswer.diff <= 12 else False
     CorrectNumber = correctThick.count(True)
 
-    context = {'quizz': quizzAnswer, 'correctNumber': CorrectNumber}
+    context = {'quizz': quizzAnswer, 'correctNumber': CorrectNumber,
+               'questionsAndAnswer': questionsAndAnswer, 'correctThick': correctThick}
 
     return render(request, 'tarefas/quizzAvalResults.html', context)
