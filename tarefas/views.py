@@ -156,13 +156,21 @@ def quizzAval_page_view(request):
 
 def quizzAvalResults_page_view(request, quizzAval_id):
     quizzAnswer = QuizzAval.objects.get(id=quizzAval_id)
-    context = {'quizz': quizzAnswer}
 
     correctAnswers = ['column', 'tantoFaz', 2, 30, 'sim', 2, 2, 'sim', 'trabalho final de curso', 'entre6a12']
-    correctThick = []
-    correctThick[0] = True if quizzAnswer.layout == 'column' else correctThick[0] = False
+    correctThick = [False] * 11
+    correctThick[0] = True if quizzAnswer.layout == 'column' else False
     correctThick[1] = True
-    correctThick[2] = True if quizzAnswer.numberOfApps == 2 else correctThick[2] = False
-    correctThick[3] = True if quizzAnswer.percentageOfPay == 30 else correctThick[3] = False
+    correctThick[2] = True if quizzAnswer.numberOfApps == 2 else False
+    correctThick[3] = True if quizzAnswer.percentageOfPay == 30 else False
+    correctThick[4] = True if quizzAnswer.availablePlataforms == 'sim' else False
+    correctThick[5] = True if quizzAnswer.howManyDevs == 2 else False
+    correctThick[6] = True if quizzAnswer.animations == 2 else False
+    correctThick[7] = True if quizzAnswer.audioQuestion == 'sim' else False
+    correctThick[8] = True if quizzAnswer.disciplina == 'trabalho final de curso' else False
+    correctThick[9] = True if quizzAnswer.diff <= 12 else False
+    CorrectNumber = correctThick.count(True)
+
+    context = {'quizz': quizzAnswer, 'correctNumber': CorrectNumber}
 
     return render(request, 'tarefas/quizzAvalResults.html', context)
