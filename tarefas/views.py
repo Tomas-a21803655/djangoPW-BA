@@ -155,8 +155,7 @@ def quizzAval_page_view(request):
 
 
 def quizzAvalResults_page_view(request, quizzAval_id):
-    quizzAnswer = QuizzAval.objects.get(id=quizzAval_id)
-
+    quizzAnswer = QuizzAval.objects.filter(id=quizzAval_id)
     questionsAndAnswer = {
         "Qual é o layout utilizado neste website?(1pt)": "column",
         "Quantas aplicações compõem o Buddy Abroad?(1pt)": "tantoFaz",
@@ -170,20 +169,24 @@ def quizzAvalResults_page_view(request, quizzAval_id):
         "Acha que foi difícil desenvolver este projecto? (estimativa)(1pt)": "entre 6 a 12",
     }
 
-    correctThick = [False] * 10
-    correctThick[0] = True if quizzAnswer.layout == 'column' else False
-    correctThick[1] = True
-    correctThick[2] = True if quizzAnswer.numberOfApps == 2 else False
-    correctThick[3] = True if quizzAnswer.percentageOfPay == 30 else False
-    correctThick[4] = True if quizzAnswer.availablePlataforms == 'sim' else False
-    correctThick[5] = True if quizzAnswer.howManyDevs == 2 else False
-    correctThick[6] = True if quizzAnswer.animations == 2 else False
-    correctThick[7] = True if quizzAnswer.audioQuestion == 'sim' else False
-    correctThick[8] = True if quizzAnswer.disciplina == 'trabalho final de curso' else False
-    correctThick[9] = True if quizzAnswer.diff <= 12 else False
-    CorrectNumber = correctThick.count(True)
+    correctThick = {
+        quizzAnswer[0].layout: True if quizzAnswer[0].layout == 'column' else False,
+        quizzAnswer[0].beAguide: True,
+        quizzAnswer[0].numberOfApps: True if quizzAnswer[0].numberOfApps == 2 else False,
+        quizzAnswer[0].percentageOfPay: True if quizzAnswer[0].percentageOfPay == 30 else False,
+        quizzAnswer[0].availablePlataforms: True if quizzAnswer[0].availablePlataforms == 'sim' else False,
+        quizzAnswer[0].howManyDevs: True if quizzAnswer[0].howManyDevs == 2 else False,
+        quizzAnswer[0].animations: True if quizzAnswer[0].animations == 2 else False,
+        quizzAnswer[0].audioQuestion: True if quizzAnswer[0].audioQuestion == 'sim' else False,
+        quizzAnswer[0].disciplina: True if quizzAnswer[0].disciplina == 'trabalho final de curso' else False,
+        quizzAnswer[0].diff: True if quizzAnswer[0].diff <= 12 else False,
+    }
 
-    context = {'quizz': quizzAnswer, 'correctNumber': CorrectNumber,
+    print(correctThick)
+
+    CorrectNumber = sum(correctThick.values())
+
+    context = {'correctNumber': CorrectNumber,
                'questionsAndAnswer': questionsAndAnswer, 'correctThick': correctThick}
 
     return render(request, 'tarefas/quizzAvalResults.html', context)

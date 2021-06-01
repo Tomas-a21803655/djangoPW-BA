@@ -30,27 +30,26 @@
         <h5>Correção das respostas erradas:</h5>
         <hr>
 
-        {% for thick in correctThick %}
+        {% for field,thick in correctThick.items %}
             {% for key,value in questionsAndAnswer.items %}
                 {% if forloop.counter == forloop.parentloop.counter %}
                     {% if thick == False %}
                         <h6>{{ key }}</h6>
                         <p>A resposta correcta é: {{ value }}</p>
-                        <p>A sua resposta foi: resposta {{ quizz }}</p>
+                        <p>A sua resposta foi: {{ field }}</p>
                         <br>
                     {% endif %}
-
                 {% endif %}
             {% endfor %}
+
         {% endfor %}
-
-
     </section>
 
     <section class="containerForm">
         <a href="{% url 'tarefas:quizzAval' %}">
             <button type="button" class="goQuizz"> Voltar para trás</button>
-        </a></section>
+        </a>
+    </section>
 
 {% endblock %}
 
