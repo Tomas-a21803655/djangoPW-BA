@@ -106,13 +106,27 @@ class QuizzAvalForm(ModelForm):
         fields = '__all__'
 
         widgets = {
-            'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. Joyful'}),
-            'numberOfApps': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'ex. 9000'}),
+            'layout': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. Block'}),
+            'numberOfApps': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'ex. 7'}),
             'availablePlataforms': forms.NullBooleanSelect(),
+            'percentageOfPay': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'ex. 15%'}),
+            'beAguide': forms.NullBooleanSelect(),
+            'howManyDevs': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'ex. 5'}),
+            'animations': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'ex. 30'}),
+            'audioQuestion': forms.NullBooleanSelect(),
+            'disciplina': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. Redes de computadores'}),
+            'diff': forms.TextInput(attrs={'class': 'form-control', 'type': 'range', 'min': '0', 'max': '24'}),
         }
 
         labels = {
-            'description': 'Describe your experience',
-            'numberOfApps': 'Quantas aplicações tem o Buddy Abroad?',
-            'availablePlataforms': 'O Buddy Abroad está disponível em iOS e Android?',
+            'layout': 'Qual é o layout utilizado neste website?(1pt)',
+            'numberOfApps': 'Quantas aplicações compõem o Buddy Abroad?(1pt)',
+            'availablePlataforms': 'O Buddy Abroad está disponível em iOS e Android?(1pt)',
+            'percentageOfPay': 'O Buddy Abroad cobra quanto % de taxa?(1pt)',
+            'beAguide': 'Posso ser um guia Buddy Abroad se conhecer bem a minha cidade?(1pt)',
+            'howManyDevs': 'Quantos alunos trabalharam no Buddy Abroad?(1pt)',
+            'animations': 'Quantas animações existem neste projecto?(1pt)',
+            'audioQuestion': 'Existe algum output de audio neste website?(1pt)',
+            'disciplina': 'Em que disciplina começou o projecto Buddy Abroad?(1pt)',
+            'diff': 'Acha que foi difícil desenvolver este projecto? (estimativa)(1pt)',
         }

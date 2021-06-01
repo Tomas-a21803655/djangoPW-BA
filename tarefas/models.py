@@ -67,11 +67,22 @@ class Networking(models.Model):
 
 
 class QuizzAval(models.Model):
-    description = models.CharField(max_length=200, blank=False)
-    numberOfApps = models.IntegerField(blank=True, null=True)
+    layout = models.CharField(max_length=200, blank=False)
 
-    BOOL_CHOICES = ((True, 'Sim'), (False, 'Não'))
-    availablePlataforms = models.BooleanField(choices=BOOL_CHOICES)
+    beAguideChoices = ((True, 'Sim!'), (False, 'Siiiim!'))
+    beAguide = models.BooleanField(choices=beAguideChoices,blank=False)
 
-    def __str__(self):
-        return self.availablePlataforms[:50]
+    numberOfApps = models.IntegerField(blank=False)
+    percentageOfPay = models.IntegerField(blank=False)
+
+    plataformChoices = ((True, 'Sim'), (False, 'Não'))
+    availablePlataforms = models.BooleanField(choices=plataformChoices,blank=False)
+
+    howManyDevs = models.IntegerField(blank=False)
+    animations = models.IntegerField(blank=False)
+
+    audioChoices = ((True, 'Sim'), (False, 'Não'))
+    audioQuestion = models.BooleanField(choices=audioChoices,blank=False)
+
+    disciplina = models.CharField(max_length=200, blank=False)
+    diff = models.IntegerField(blank=False, default='12')

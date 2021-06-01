@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import Tarefa, Comment, Networking
+from .models import Tarefa, Comment, Networking, QuizzAval
 from .forms import TarefaForm, ContactForm, CommentForm, QuizzForm, NetworkingForm, QuizzAvalForm
 
 
@@ -145,10 +145,24 @@ def networkingAddUser_page_view(request):
 def quizzAval_page_view(request):
     form = QuizzAvalForm(request.POST or None)
     if form.is_valid():
-        form.save()
-        messages.success(request, 'Quizz Completed!')
-        return HttpResponseRedirect(reverse('tarefas:quizzAval'))
+        task = form.save()
+        messages.success(request, 'Quizz Completo!')
+        return HttpResponseRedirect(reverse('tarefas:quizzAvalResults', args=(task.id,)))
 
     context = {'form': form, }
 
     return render(request, 'tarefas/quizzAval.html', context)
+
+
+def quizzAvalResults_page_view(request, quizzAval_id):
+    quizzAnswer = QuizzAval.objects.get(id=quizzAval_id)
+    context = {'quizz': quizzAnswer}
+
+    correctAnswers = ['column', 'tantoFaz', 2, 30, 'sim', 2, 2, 'sim', 'trabalho final de curso', 'entre6a12']
+    correctThick = []
+    correctThick[0] = True if quizzAnswer.layout == 'column' else correctThick[0] = False
+    correctThick[1] = True
+    correctThick[2] = True if quizzAnswer.numberOfApps == 2 else correctThick[2] = False
+    correctThick[3] = True if quizzAnswer.percentageOfPay == 30 else correctThick[3] = False
+
+    return render(request, 'tarefas/quizzAvalResults.html', context)

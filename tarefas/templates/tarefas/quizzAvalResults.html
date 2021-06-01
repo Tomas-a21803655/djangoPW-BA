@@ -1,0 +1,24 @@
+{% extends 'tarefas/baseBuddyAbroad.html' %}
+{% load static %}
+
+{% block main %}
+
+    <section style="padding-top: 60px;text-align: center;">
+        <h2>Resultados do Quizz</h2>
+    </section>
+
+    <section class="containerForm">
+        <h4 style="text-align: center">Acertou {{ X }} de 10 respostas, teve {{ X }} pontos!</h4>
+    </section>
+
+    <section class="containerForm">
+        <h5>Correção das respostas erradas:</h5>
+        <hr>
+        <h6>Qual é o layout utilizado neste website?</h6>
+        <p>A resposta correcta é:   Column</p>
+        <p>A sua resposta foi:  {{ quizz.disciplina }}</p>
+
+    </section>
+
+{% endblock %}
+
