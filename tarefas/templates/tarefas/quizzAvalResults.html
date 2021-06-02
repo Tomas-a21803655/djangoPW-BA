@@ -30,13 +30,13 @@
         <h5>Correção das respostas erradas:</h5>
         <hr>
 
-        {% for field,thick in correctThick.items %}
-            {% for key,value in questionsAndAnswer.items %}
+        {% for key,value in questionsAndAnswer.items %}
+            {% for field in correctThick %}
                 {% if forloop.counter == forloop.parentloop.counter %}
-                    {% if thick == False %}
+                    {% if field.1 == False %}
                         <h6>{{ key }}</h6>
                         <p>A resposta correcta é: {{ value }}</p>
-                        <p>A sua resposta foi: {{ field }}</p>
+                        <p>A sua resposta foi: {{ field.0 }}</p>
                         <br>
                     {% endif %}
                 {% endif %}

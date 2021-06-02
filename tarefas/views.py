@@ -155,36 +155,36 @@ def quizzAval_page_view(request):
 
 
 def quizzAvalResults_page_view(request, quizzAval_id):
-    quizzAnswer = QuizzAval.objects.filter(id=quizzAval_id)
+    quizzAnswer = QuizzAval.objects.get(id=quizzAval_id)
     questionsAndAnswer = {
         "Qual é o layout utilizado neste website?(1pt)": "column",
         "Quantas aplicações compõem o Buddy Abroad?(1pt)": "tantoFaz",
         "O Buddy Abroad está disponível em iOS e Android?(1pt": 2,
         "O Buddy Abroad cobra quanto % de taxa?(1pt)": 30,
-        "Posso ser um guia Buddy Abroad se conhecer bem a minha cidade?(1pt)": "sim",
+        "Posso ser um guia Buddy Abroad se conhecer bem a minha cidade?(1pt)": "True",
         "Quantos alunos trabalharam no Buddy Abroad?(1pt)": 2,
         "Quantas animações existem neste projecto?(1pt)": 2,
-        "Existe algum output de audio neste website?(1pt)": "sim",
+        "Existe algum output de audio neste website?(1pt)": "True",
         "Em que disciplina começou o projecto Buddy Abroad?(1pt)": "trabalho final de curso",
-        "Acha que foi difícil desenvolver este projecto? (estimativa)(1pt)": "entre 6 a 12",
+        "Acha que foi difícil desenvolver este projecto? (estimativa)(1pt)": "menor que 12",
     }
 
-    correctThick = {
-        quizzAnswer[0].layout: True if quizzAnswer[0].layout == 'column' else False,
-        quizzAnswer[0].beAguide: True,
-        quizzAnswer[0].numberOfApps: True if quizzAnswer[0].numberOfApps == 2 else False,
-        quizzAnswer[0].percentageOfPay: True if quizzAnswer[0].percentageOfPay == 30 else False,
-        quizzAnswer[0].availablePlataforms: True if quizzAnswer[0].availablePlataforms == 'sim' else False,
-        quizzAnswer[0].howManyDevs: True if quizzAnswer[0].howManyDevs == 2 else False,
-        quizzAnswer[0].animations: True if quizzAnswer[0].animations == 2 else False,
-        quizzAnswer[0].audioQuestion: True if quizzAnswer[0].audioQuestion == 'sim' else False,
-        quizzAnswer[0].disciplina: True if quizzAnswer[0].disciplina == 'trabalho final de curso' else False,
-        quizzAnswer[0].diff: True if quizzAnswer[0].diff <= 12 else False,
-    }
+    correctThick = [
+        [str(quizzAnswer.layout), True if quizzAnswer.layout == 'column' else False],
+        [str(quizzAnswer.beAguide), True],
+        [str(quizzAnswer.numberOfApps), True if quizzAnswer.numberOfApps == 2 else False],
+        [str(quizzAnswer.percentageOfPay), True if quizzAnswer.percentageOfPay == 30 else False],
+        [str(quizzAnswer.availablePlataforms), True if quizzAnswer.availablePlataforms == True else False],
+        [str(quizzAnswer.howManyDevs), True if quizzAnswer.howManyDevs == 2 else False],
+        [str(quizzAnswer.animations), True if quizzAnswer.animations == 2 else False],
+        [str(quizzAnswer.audioQuestion), True if quizzAnswer.audioQuestion == True else False],
+        [str(quizzAnswer.disciplina), True if quizzAnswer.disciplina == 'trabalho final de curso' else False],
+        [str(quizzAnswer.diff), True if quizzAnswer.diff <= 12 else False],
+    ]
 
     print(correctThick)
 
-    CorrectNumber = sum(correctThick.values())
+    CorrectNumber = sum(x.count(True) for x in correctThick)
 
     context = {'correctNumber': CorrectNumber,
                'questionsAndAnswer': questionsAndAnswer, 'correctThick': correctThick}
