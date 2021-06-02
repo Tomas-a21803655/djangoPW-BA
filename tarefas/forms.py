@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Tarefa, Contact, Comment, Quizz, Networking, QuizzAval
+from .models import Tarefa, Contact, Comment, Quizz, Networking, QuizzAval, Comentarios
 
 
 class TarefaForm(ModelForm):
@@ -129,4 +129,36 @@ class QuizzAvalForm(ModelForm):
             'audioQuestion': 'Existe algum output de audio neste website?(1pt)',
             'disciplina': 'Em que disciplina começou o projecto Buddy Abroad?(1pt)',
             'diff': 'Acha que foi difícil desenvolver este projecto? (estimativa)(1pt)',
+        }
+
+
+class ComentariosForm(ModelForm):
+    class Meta:
+        model = Comentarios
+        fields = '__all__'
+
+        widgets = {
+            'clareza': forms.TextInput(attrs={'class': 'form-control', 'type': 'range', 'min': '0', 'max': '10'}),
+            'rigor': forms.TextInput(attrs={'class': 'form-control', 'type': 'range', 'min': '0', 'max': '10'}),
+            'precisao': forms.TextInput(attrs={'class': 'form-control', 'type': 'range', 'min': '0', 'max': '10'}),
+            'profundidade': forms.TextInput(attrs={'class': 'form-control', 'type': 'range', 'min': '0', 'max': '10'}),
+            'amplitude': forms.TextInput(attrs={'class': 'form-control', 'type': 'range', 'min': '0', 'max': '10'}),
+            'logica': forms.TextInput(attrs={'class': 'form-control', 'type': 'range', 'min': '0', 'max': '10'}),
+            'significancia': forms.TextInput(attrs={'class': 'form-control', 'type': 'range', 'min': '0', 'max': '10'}),
+            'originalidade': forms.TextInput(attrs={'class': 'form-control', 'type': 'range', 'min': '0', 'max': '10'}),
+            'sugestao': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Dê uma sugestão'}),
+        }
+
+        labels = {
+            'clareza': 'Clareza (compreensível, em que o significado pode ser identificado sem que haja confusão ou '
+                       'ambiguidade.):',
+            'rigor': 'Rigor (livre de erros):',
+            'precisao': 'Precisão (exato, segundo o nível necessário do pormenor):',
+            'profundidade': 'Profundidade (contém complexidades e múltiplas inter-relações):',
+            'amplitude': 'Amplitude (que abrange diferentes aspectos, pontos de vista, pespectivas):',
+            'logica': 'Lógica (em que as partes fazem sentido num todo, sem contradições: faz sentido no conjunto, '
+                      'provém de evidências):',
+            'significancia': 'Significância (focado no importante, não trivial):',
+            'originalidade': 'Originalidade (criativo e original):',
+            'sugestao': 'Sugestões de melhoria:',
         }

@@ -4,8 +4,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
+from .forms import TarefaForm, ContactForm, CommentForm, QuizzForm, NetworkingForm, QuizzAvalForm, ComentariosForm
 from .models import Tarefa, Comment, Networking, QuizzAval
-from .forms import TarefaForm, ContactForm, CommentForm, QuizzForm, NetworkingForm, QuizzAvalForm
 
 
 # Create your views here.
@@ -182,10 +182,21 @@ def quizzAvalResults_page_view(request, quizzAval_id):
         [str(quizzAnswer.diff), True if quizzAnswer.diff <= 12 else False],
     ]
 
-
     CorrectNumber = sum(x.count(True) for x in correctThick)
 
     context = {'correctNumber': CorrectNumber,
                'questionsAndAnswer': questionsAndAnswer, 'correctThick': correctThick}
 
     return render(request, 'tarefas/quizzAvalResults.html', context)
+
+
+def comentarios_page_view(request):
+    form = ComentariosForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Formulário Completo!')
+        return HttpResponseRedirect(reverse('tarefas:comentarios'))
+
+    context = {'form': form, }
+
+    return render(request, 'tarefas/comentarios.html', context)

@@ -70,19 +70,31 @@ class QuizzAval(models.Model):
     layout = models.CharField(max_length=200, blank=False)
 
     beAguideChoices = ((True, 'Sim!'), (False, 'Siiiim!'))
-    beAguide = models.BooleanField(choices=beAguideChoices,blank=False)
+    beAguide = models.BooleanField(choices=beAguideChoices, blank=False)
 
     numberOfApps = models.IntegerField(blank=False)
     percentageOfPay = models.IntegerField(blank=False)
 
     plataformChoices = ((True, 'Sim'), (False, 'Não'))
-    availablePlataforms = models.BooleanField(choices=plataformChoices,blank=False)
+    availablePlataforms = models.BooleanField(choices=plataformChoices, blank=False)
 
     howManyDevs = models.IntegerField(blank=False)
     animations = models.IntegerField(blank=False)
 
     audioChoices = ((True, 'Sim'), (False, 'Não'))
-    audioQuestion = models.BooleanField(choices=audioChoices,blank=False)
+    audioQuestion = models.BooleanField(choices=audioChoices, blank=False)
 
     disciplina = models.CharField(max_length=200, blank=False)
     diff = models.IntegerField(blank=False, default='12')
+
+
+class Comentarios(models.Model):
+    clareza = models.IntegerField(blank=False, default='12')
+    rigor = models.IntegerField(blank=False, default='12')
+    precisao = models.IntegerField(blank=False, default='12')
+    profundidade = models.IntegerField(blank=False, default='12')
+    amplitude = models.IntegerField(blank=False, default='12')
+    logica = models.IntegerField(blank=False, default='12')
+    significancia = models.IntegerField(blank=False, default='12')
+    originalidade = models.IntegerField(blank=False, default='12')
+    sugestao = models.TextField(max_length=400, blank=False, default='')
