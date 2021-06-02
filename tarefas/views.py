@@ -182,7 +182,6 @@ def quizzAvalResults_page_view(request, quizzAval_id):
         [str(quizzAnswer.diff), True if quizzAnswer.diff <= 12 else False],
     ]
 
-    print(correctThick)
 
     CorrectNumber = sum(x.count(True) for x in correctThick)
 
