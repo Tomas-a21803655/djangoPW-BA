@@ -13,6 +13,20 @@
             margin-bottom: 16px;
         }
 
+
+        .goBack {
+            display: block;
+            width: 10%;
+            border: none;
+            background-color: #feaa00;
+            color: white;
+            border-radius: 10px;
+            padding: 14px 28px;
+            font-size: 15px;
+            cursor: pointer;
+            text-align: center;
+        }
+
         .carousel-item {
             height: 300px;
         !important;
@@ -23,26 +37,32 @@
             object-fit: scale-down;
         }
 
-        .goCreation {
+        .goEdit {
             display: block;
-            width: 100%;
+            width: auto;
             border: none;
             background-color: #feaa00;
             color: white;
             border-radius: 10px;
-            padding: 14px 28px;
-            font-size: 18px;
+            padding: 10px 18px;
+            font-size: 13px;
             cursor: pointer;
             text-align: center;
+            margin: auto;
         }
 
     </style>
-    <section style="padding-top: 60px;text-align: center;">
-        <h2>Connect</h2>
-        <p>Connect with other users</p>
-    </section>
 
     <section class="containerForm">
+        <h2 style="text-align: center">Edit Contact Card</h2>
+
+
+        <a href="{% url 'users:index' %}">
+            <button type="button" class="goBack"><i style="font-size: 15px" class="fas fa-chevron-left"></i> Go Back
+            </button>
+        </a>
+        <br>
+
         <h3 style="text-align: left">Guides</h3>
         <hr style="opacity: 10%">
         <div id="guideCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -51,7 +71,6 @@
                     <div class="carousel-caption">
                         <i style="color: #feaa00" class="fas fa-3x	 fa-address-card"></i>
                         <h5>Guide contact card</h5>
-                        <p>Buddy Abroad approved guides!</p>
                     </div>
                 </div>
                 {% for userGuide in usersGuide %}
@@ -59,7 +78,11 @@
                         <img src="{% static 'tarefas/images/personMockUp1.jpg' %}" class="d-block w-100" alt="...">
                         <div class="carousel-caption">
                             <h5>{{ userGuide.name }} {{ userGuide.surname }}</h5>
-                            <p>Contact me at: {{ userGuide.email }}</p>
+                            <a href="{% url 'users:index' %}">
+                                <button type="button" class="goEdit"><i style="font-size: 18px" class="fas fa-edit"></i>
+                                    Edit Contact Card
+                                </button>
+                            </a>
                         </div>
                     </div>
                 {% endfor %}
@@ -75,9 +98,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </section>
 
-    <section class="containerForm">
         <h3 style="text-align: left">Tourists</h3>
         <hr style="opacity: 10%">
         <div id="touristCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -86,7 +107,6 @@
                     <div class="carousel-caption">
                         <i style="color: #feaa00" class="fas fa-3x	 fa-address-card"></i>
                         <h5>Tourist contact card</h5>
-                        <p>Buddy Abroad verified tourists!</p>
                     </div>
                 </div>
                 {% for userTourist in usersTourist %}
@@ -94,7 +114,11 @@
                         <img src="{% static 'tarefas/images/personMockUp1.jpg' %}" class="d-block w-100" alt="...">
                         <div class="carousel-caption ">
                             <h5>{{ userTourist.name }} {{ userTourist.surname }}</h5>
-                            <p>Contact me at: {{ userTourist.email }}</p>
+                            <a href="{% url 'users:index' %}">
+                                <button type="button" class="goEdit"><i style="font-size: 18px" class="fas fa-edit"></i>
+                                    Edit Contact Card
+                                </button>
+                            </a>
                         </div>
                     </div>
                 {% endfor %}

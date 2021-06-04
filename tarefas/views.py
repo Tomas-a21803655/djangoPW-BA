@@ -135,7 +135,7 @@ def networkingAddUser_page_view(request):
     form = NetworkingForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('tarefas:networking'))
+        return HttpResponseRedirect(reverse('users:index'))
 
     context = {'form': form}
 
@@ -200,3 +200,28 @@ def comentarios_page_view(request):
     context = {'form': form, }
 
     return render(request, 'tarefas/comentarios.html', context)
+
+
+def networkingEditUser_page_view(request):
+    context = {'usersGuide': Networking.objects.all().filter(typeOfUser=True),
+               'usersTourist': Networking.objects.all().filter(typeOfUser=False)}
+
+    return render(request, 'tarefas/networkingEditUser.html', context)
+
+
+def networkingRemoveUser_page_view(request):
+    context = {'usersGuide': Networking.objects.all().filter(typeOfUser=True),
+               'usersTourist': Networking.objects.all().filter(typeOfUser=False)}
+
+    return render(request, 'tarefas/networkingRemoveUser.html', context)
+
+
+def deleteConfirmation_page_view(request, card_id):
+    context = {'cardId': card_id}
+
+    return render(request, 'tarefas/deleteConfirmation.html', context)
+
+
+def apaga_card_view(request, card_id):
+    Networking.objects.get(id=card_id).delete()
+    return HttpResponseRedirect(reverse('tarefas:networkingRemoveUser'))
