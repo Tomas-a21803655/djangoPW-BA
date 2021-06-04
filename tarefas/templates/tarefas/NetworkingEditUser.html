@@ -78,7 +78,7 @@
                         <img src="{% static 'tarefas/images/personMockUp1.jpg' %}" class="d-block w-100" alt="...">
                         <div class="carousel-caption">
                             <h5>{{ userGuide.name }} {{ userGuide.surname }}</h5>
-                            <a href="{% url 'users:index' %}">
+                            <a href="{% url 'tarefas:editaCard' userGuide.id %}">
                                 <button type="button" class="goEdit"><i style="font-size: 18px" class="fas fa-edit"></i>
                                     Edit Contact Card
                                 </button>
@@ -114,7 +114,7 @@
                         <img src="{% static 'tarefas/images/personMockUp1.jpg' %}" class="d-block w-100" alt="...">
                         <div class="carousel-caption ">
                             <h5>{{ userTourist.name }} {{ userTourist.surname }}</h5>
-                            <a href="{% url 'users:index' %}">
+                            <a href="{% url 'tarefas:editaCard' userTourist.id %}">
                                 <button type="button" class="goEdit"><i style="font-size: 18px" class="fas fa-edit"></i>
                                     Edit Contact Card
                                 </button>

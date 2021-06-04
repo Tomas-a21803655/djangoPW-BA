@@ -225,3 +225,15 @@ def deleteConfirmation_page_view(request, card_id):
 def apaga_card_view(request, card_id):
     Networking.objects.get(id=card_id).delete()
     return HttpResponseRedirect(reverse('tarefas:networkingRemoveUser'))
+
+
+def editUserCard_view(request, card_id):
+    card = Networking.objects.get(id=card_id)
+    form = NetworkingForm(request.POST or None, instance=card)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('tarefas:networkingEditUser'))
+
+    context = {'form': form, 'card_id': card_id}
+    return render(request, 'tarefas/editUserCard.html', context)

@@ -29,5 +29,6 @@ urlpatterns = [
     path('networkingRemoveUser/', views.networkingRemoveUser_page_view, name='networkingRemoveUser'),
     path('deleteConfirmation/<int:card_id>', views.deleteConfirmation_page_view, name='deleteConfirmation'),
     path('apagaCard/<int:card_id>', views.apaga_card_view, name='apagaCard'),
+    path('editaCard/<int:card_id>', views.editUserCard_view, name='editaCard'),
 
 ]
