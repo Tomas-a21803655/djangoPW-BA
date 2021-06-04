@@ -4,44 +4,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .forms import TarefaForm, ContactForm, CommentForm, QuizzForm, NetworkingForm, QuizzAvalForm, ComentariosForm
-from .models import Tarefa, Comment, Networking, QuizzAval
-
-
-# Create your views here.
-
-
-def home_page_view(request):
-    context = {'tarefas': Tarefa.objects.all()}
-    return render(request, 'tarefas/home.html', context)
-
-
-def nova_tarefa_view(request):
-    form = TarefaForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('tarefas:home'))
-
-    context = {'form': form}
-
-    return render(request, 'tarefas/nova.html', context)
-
-
-def edita_tarefa_view(request, tarefa_id):
-    tarefa = Tarefa.objects.get(id=tarefa_id)
-    form = TarefaForm(request.POST or None, instance=tarefa)
-
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('tarefas:home'))
-
-    context = {'form': form, 'tarefa_id': tarefa_id}
-    return render(request, 'tarefas/edita.html', context)
-
-
-def apaga_tarefa_view(request, tarefa_id):
-    Tarefa.objects.get(id=tarefa_id).delete()
-    return HttpResponseRedirect(reverse('tarefas:home'))
+from .forms import ContactForm, CommentForm, QuizzForm, NetworkingForm, QuizzAvalForm, ComentariosForm
+from .models import Comment, Networking, QuizzAval
 
 
 # Buddy Abroad
