@@ -8,7 +8,7 @@ from .forms import ContactForm, CommentForm, QuizzForm, NetworkingForm, QuizzAva
 from .models import Comment, Networking, QuizzAval
 
 
-# Buddy Abroad
+# Buddy Abroad Web
 
 def banner_page_view(request):
     return render(request, 'tarefas/banner.html')
