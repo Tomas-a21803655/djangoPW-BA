@@ -4,8 +4,15 @@
 {% block main %}
     <section style="padding-top: 60px;text-align: center;">
         <h2>Área de Avaliação</h2>
-        <p>Área dedicada a cumprir todos os requisitos da parte 1 do projecto não coerentes com o tema do trabalho (Alguma informação outdated)
+        <p>Área dedicada a cumprir todos os requisitos da <strong>parte 1 do projecto</strong> não coerentes com o tema
+            do trabalho
+            <strong>(Alguma informação outdated)</strong>
         </p>
+        <p><a href="https://buddy-abroad-web.herokuapp.com/"><strong>Link Website Parte 1</strong></a></p>
+        <p><a href="https://github.com/Tomas-a21803655/Programa-o-Web---Projeto-Fase-1-P1-Website-Responsivo"><strong>
+            Repositório Parte 1
+        </strong></a></p>
+
     </section>
 
     <section class="sectionStyle" style="padding: 40px;">
@@ -32,28 +39,15 @@
         </div>
     </section>
 
-    <section class="sectionStyle" style="padding: 40px;">
-        <h2>Visão Single-page application</h2>
-        <p style="text-align: left;">Como a nossa visão inicial para o projecto era uma single-page application
-            decidimos incorporar
-            apenas para efeitos lúdicos, sem qualquer peso na avaliaçao, uma visão single-page application. Podem
-            aceder a esta visão carregando no botão abaixo sendo possível sair dessa mesma visão carregando no botão
-            VOLTAR
-            na barra de navegação no canto superior direito.</p>
-        <a href="{% url 'tarefas:singlePageView' %}">
-            <button type="button" class="singlePageApp">Visão Single-page application</button>
-        </a>
-    </section>
-
     <section class="sectionStyle" style="padding: 40px;text-align: center;">
         <figure>
             <svg style="width: 100%;max-width: 500px;">
                 <image href="{% static 'tarefas/images/wordcloudBA.jpg' %}" width="100%" height="100%">
                 </image>
-                <a href="{% url 'tarefas:banner' %}">
+                <a href="{% url 'tarefas:index' %}">
                     <rect opacity="0.1" width="200" height="30" x="30%" y="30%"></rect>
                 </a>
-                <a href="{% url 'tarefas:aboutBA' %}">
+                <a href="{% url 'tarefas:index' %}">
                     <rect opacity="0.1" width="200" height="10" x="30%" y="70%"></rect>
                 </a>
             </svg>

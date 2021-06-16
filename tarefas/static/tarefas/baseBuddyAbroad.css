@@ -1,242 +1,11 @@
-.imageBackground {
-    background-image: url(images/homePicture.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-.storeIcons {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-}
-
-.bannerIndex {
-    padding: 4rem 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
-    align-items: center;
-}
-
-.bannerIndex > * {
-    color: white;
-}
-
-.bannerIndex > h1 {
-    font-size: 4rem;
-}
-
-.bannerIndex > article > p {
-    font-size: 1.5rem;
-}
-
-.bannerIndex > article > a {
-    margin-top: .75rem;
-    margin-right: 20px;
-}
-
-/* global*/
-
-.navbar-dark {
-    background: #feaa00;
-}
-
+/* styles for before redesign content */
 .sectionStyle {
     margin: 2% 5%;
     border-radius: 2%;
     background-color: #f2f2f2;
 }
 
-/* aboutBA */
-
-a {
-    text-decoration: none;
-}
-
-li {
-    list-style: none;
-}
-
-.aboutBa {
-    padding: 2rem;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    border-radius: 2%;
-    background-color: #f2f2f2;
-}
-
-.aboutBa > ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-gap: 1rem;
-    padding: 0;
-}
-
-.aboutBa > ul > li > p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: black;
-}
-
-.aboutBa > ul > li > div {
-    color: #feaa00;
-    font-size: 1em;
-}
-
-@media screen and (max-width: 650px) {
-    .aboutBa > ul {
-        grid-template-columns: repeat( auto-fit, minmax(100%, 1fr));
-    }
-
-    .aboutBa > ul > li > div {
-        color: #feaa00;
-        font-size: 0.8em;
-    }
-
-    .aboutBa > ul > li > p {
-        font-size: 0.8rem;
-    }
-}
-
-/* team */
-
-.us {
-    width: auto;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.us .aluno {
-    width: 250px;
-    background: #fff;
-    border-radius: 2%;
-    padding: 20px 10px;
-    margin: 40px 12%;
-    text-align: center;
-}
-
-.us .aluno .aluno_image {
-    background: #feaa00;
-    max-width: 190px;
-    width: 100%;
-    height: 190px;
-    margin: 0 auto;
-    border-radius: 50%;
-    padding: 5px;
-}
-
-.us .aluno .aluno_image img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-}
-
-.us .aluno h3 {
-    text-transform: uppercase;
-    font-size: 18px;
-    line-height: 18px;
-    letter-spacing: 2px;
-    margin: 15px 0 0px;
-}
-
-.us .aluno span {
-    font-size: 10px;
-}
-
-.us .aluno p {
-    margin-top: 20px;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-/* tutorial */
-
-.tutorial {
-    padding: 2rem;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    border-radius: 2%;
-    background-color: #f2f2f2;
-}
-
-.tutorial > ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-gap: 1rem;
-    padding: 0;
-}
-
-.tutorial > ul > li > p {
-    font-size: 1rem;
-    line-height: 1.5;
-    padding: 1rem .75rem;
-    color: black;
-}
-
-.tutorial > ul > li > div {
-    text-align: center;
-}
-
-.phoneMockUp {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-}
-
-.phoneMockUp:hover {
-    transform: scale(1.2);
-}
-
-@media screen and (max-width: 650px) {
-    .tutorial > ul {
-        grid-template-columns: repeat( auto-fit, minmax(100%, 1fr));
-    }
-
-    .tutorial > ul > li > p {
-        font-size: 0.8rem;
-    }
-}
-
-/* FAQ */
-
-.perguntas {
-    padding: 48px;
-}
-
-.pergunta {
-    border: 1px solid rgba(0, 0, 0, 0.082);
-    background-color: rgb(245, 245, 245);
-    padding: 1rem;
-    border-radius: 5px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    max-width: 320px;
-}
-
-.pergunta_title {
-    font-weight: normal;
-}
-
-.pergunta_resposta {
-    font-weight: 100;
-    font-size: 0.95rem;
-}
-
-.containerFAQ {
-    display: flex;
-    justify-content: center;
-}
-
-/* contacts */
-
-input[type=text], input[type=email],input[type=password], select, textarea {
+input[type=text], input[type=email], input[type=password], select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -293,13 +62,6 @@ input[type=submit] {
     margin: 2% 5%;
     border-radius: 2%;
     background-color: #f2f2f2;
-}
-
-.socials {
-    width: 100%;
-    max-width: 50px;
-    height: auto;
-    margin-right: 10px;
 }
 
 /* Avaliação */
@@ -377,19 +139,6 @@ input[type=submit] {
     display: inline-block;
 }
 
-.singlePageApp {
-    display: block;
-    width: 100%;
-    border: none;
-    background-color: #feaa00;
-    color: white;
-    border-radius: 10px;
-    padding: 14px 28px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
-}
-
 .videoContainer {
     position: relative;
     overflow: hidden;
@@ -407,6 +156,6 @@ input[type=submit] {
     height: 100%;
 }
 
-
-
-
+a {
+    text-decoration: none;
+}

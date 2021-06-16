@@ -15,7 +15,7 @@ class ContactForm(ModelForm):
             'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. johndoe@mail.com'}),
             'phone': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'ex. 910000000'}),
             'birthday': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'subject': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. Found a bug'}),
+            'subject': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'ex. Contact Card Approval'}),
             'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write your message here'}),
         }
 

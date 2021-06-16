@@ -12,73 +12,67 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/png" href="{% static 'tarefas/images/favicon.ico' %}"/>
+
+    <!-- gfont -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/951a2c1a96.js" crossorigin="anonymous"></script>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+            rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
             crossorigin="anonymous"></script>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/951a2c1a96.js" crossorigin="anonymous"></script>
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     {% load static %}
     <link rel="stylesheet" href="{% static 'tarefas/baseBuddyAbroad.css' %}">
+    <link rel="stylesheet" href="{% static 'tarefas/styles.css' %}">
 </head>
 
 <body>
 <header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light navColor">
         <div class="container-fluid">
-            <a class="navbar-brand mb-0 h1" href="{% url 'tarefas:banner' %}">Buddy Abroad</a>
+            <a class="navbar-brand" href="{% url 'tarefas:index' %}">
+                <img alt="Buddy Abroad Nav Logo" class="buddyNavLogo"
+                     src="{% static 'tarefas/images/redesign/buddyAbroadLogo.svg' %}">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'tarefas:aboutBA' %}">
-                            <i class="fas fa-map-marked-alt"></i> About Buddy Abroad
-                        </a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'tarefas:team' %}">
-                            <i class="fas fa-user-friends"></i> Team
-                        </a>
+                        <a class="nav-link" href="#tutorial">Tutorial</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'tarefas:tutorial' %}">
-                            <i class="fas fa-mobile-alt"></i> Tutorial
-                        </a>
+                        <a class="nav-link" href="#reviews">Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'tarefas:faq' %}">
-                            <i class="far fa-question-circle"></i> F.A.Q
-                        </a>
+                        <a class="nav-link" href="#faq">F.A.Q</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'tarefas:reviews' %}">
-                            <i class="fas fa-star"></i> Reviews
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'tarefas:contacts' %}">
-                            <i class="fas fa-envelope"></i> Contact Us
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'tarefas:quizz' %}">
-                            <i class="fas fa-question"></i> Quizz
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'tarefas:networking' %}">
-                            <i class="fas fa-users"></i> Connect
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'users:login' %}">
-                            <i class="fas fa-sign-in-alt"></i> Log in
-                        </a>
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
@@ -86,14 +80,37 @@
                             <i class="fas fa-clipboard-check"></i> Avaliação
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url 'tarefas:quizzAval' %}">Quizz Sobre o Trabalho</a></li>
-                            <li><a class="dropdown-item" href="{% url 'tarefas:comentarios' %}">Comentários Sobre o Trabalho</a></li>
-                            <li><a class="dropdown-item" href="{% url 'tarefas:aval' %}">Área de Avaliação</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'tarefas:quizz' %}">
+                                    Quizz
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'tarefas:contacts' %}">
+                                    Contact 🤙
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'tarefas:networking' %}">
+                                    Connect
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'users:login' %}">
+                                    Log in
+                                </a>
+                            </li>
+                            <li>
+                                <hr>
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'tarefas:quizzAval' %}">Quizz Sobre o Trabalho</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'tarefas:comentarios' %}">Comentários Sobre o
+                                Trabalho</a></li>
+                            <li><a class="dropdown-item" href="{% url 'tarefas:aval' %}">Área de Avaliação Parte 1</a>
+                            </li>
                         </ul>
                     </li>
-                    {% block navList %}
-
-                    {% endblock %}
                 </ul>
             </div>
         </div>
@@ -101,13 +118,32 @@
 
 </header>
 
+{% block navList %}
 
+{% endblock %}
 <main>
     {% block main %}
 
     {% endblock %}
 </main>
 
+<script>
+    // section navbar active change
+    $(document).ready(function () {
+        $('a').click(function () {
+            $('a').removeClass("active");
+            $(this).addClass("active");
+        });
+    });
+
+    // menu collapse
+    /*
+    $(document).on('click', '.navbar-collapse.show', function (e) {
+        if ($(e.target).is('a')) {
+            $(this).collapse('hide');
+        }
+    });*/
+</script>
 
 </body>
 </html>

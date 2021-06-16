@@ -9,27 +9,6 @@ from .models import Comment, Networking, QuizzAval
 
 
 # Buddy Abroad Web
-
-def banner_page_view(request):
-    return render(request, 'tarefas/banner.html')
-
-
-def aboutBA_page_view(request):
-    return render(request, 'tarefas/aboutBA.html')
-
-
-def team_page_view(request):
-    return render(request, 'tarefas/team.html')
-
-
-def tutorial_page_view(request):
-    return render(request, 'tarefas/tutorial.html')
-
-
-def faq_page_view(request):
-    return render(request, 'tarefas/faq.html')
-
-
 def contacts_page_view(request):
     form = ContactForm(request.POST or None)
     if form.is_valid():
@@ -201,3 +180,14 @@ def editUserCard_view(request, card_id):
 
     context = {'form': form, 'card_id': card_id}
     return render(request, 'tarefas/editUserCard.html', context)
+
+
+def index_page_view(request):
+    # Review Section get average and 3 reviews
+    average = list(Comment.objects.aggregate(Avg('rating')).values())[0] or 0
+
+    context = {'comments': Comment.objects.all()[:3], 'averageStars': round(average, 1),
+               'reviewCount': Comment.objects.count(),
+               }
+
+    return render(request, 'tarefas/index.html', context)

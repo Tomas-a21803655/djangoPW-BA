@@ -5,13 +5,9 @@ from . import views
 app_name = 'tarefas'
 
 urlpatterns = [
-    path('', views.banner_page_view, name='banner'),
+    path('', views.index_page_view, name='index'),
+    path('index/', views.index_page_view, name='index'),
     # Buddy Abroad
-    path('banner/', views.banner_page_view, name='banner'),
-    path('aboutBA/', views.aboutBA_page_view, name='aboutBA'),
-    path('team/', views.team_page_view, name='team'),
-    path('tutorial/', views.tutorial_page_view, name='tutorial'),
-    path('faq/', views.faq_page_view, name='faq'),
     path('contacts/', views.contacts_page_view, name='contacts'),
     path('aval/', views.aval_page_view, name='aval'),
     path('singlePageView/', views.singlePageView_page_view, name='singlePageView'),
@@ -27,5 +23,5 @@ urlpatterns = [
     path('deleteConfirmation/<int:card_id>', views.deleteConfirmation_page_view, name='deleteConfirmation'),
     path('apagaCard/<int:card_id>', views.apaga_card_view, name='apagaCard'),
     path('editaCard/<int:card_id>', views.editUserCard_view, name='editaCard'),
-
+    # re
 ]
