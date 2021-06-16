@@ -1,0 +1,26 @@
+{% extends 'tarefas/baseBuddyAbroad.html' %}
+{% load static %}
+
+{% block main %}
+    <section style="padding-top: 60px;text-align: center;">
+        <h2>Área de Avaliação Parte 2 - 3</h2>
+        <p>Área dedicada à discussão de tópicos sobre a <strong>parte 2 - 3</strong> do trabalho
+        </p>
+    </section>
+
+    <section class="sectionStyle" style="padding: 40px;">
+        <h2>Buddy <span class="buddyGlow">Abroad</span></h2>
+        <p>É de notar que nesta entrega foi realizado um redesign integral da UI usando maioritariamente componentes
+            boostrap
+            adaptados com o nosso próprio css. <a href="{% url 'tarefas:aval' %}"><strong>Website antigo.</strong></a>
+        </p>
+        <p>Na index page, na secção #contact temos um form que recorre aos serviços da <a href="https://formspree.io/">
+            formspree</a> mandando diretamente esse form para o nosso email.</p>
+        <p>No index.html recorremos também ao uso da api <a href="https://swiperjs.com/">swiperjs</a> para os slides da
+            tutorial section</p>
+        <p>Utilizamos tambem um script em javascript para mudar o active na componente nav</p>
+    </section>
+
+
+{% endblock %}
+

@@ -191,3 +191,7 @@ def index_page_view(request):
                }
 
     return render(request, 'tarefas/index.html', context)
+
+
+def avalPt2_page_view(request):
+    return render(request, 'tarefas/avalPt2.html')

@@ -23,5 +23,5 @@ urlpatterns = [
     path('deleteConfirmation/<int:card_id>', views.deleteConfirmation_page_view, name='deleteConfirmation'),
     path('apagaCard/<int:card_id>', views.apaga_card_view, name='apagaCard'),
     path('editaCard/<int:card_id>', views.editUserCard_view, name='editaCard'),
-    # re
+    path('avalPt2/', views.avalPt2_page_view, name='avalPt2'),
 ]
