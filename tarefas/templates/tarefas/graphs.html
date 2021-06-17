@@ -8,7 +8,18 @@
     </section>
 
     <sectiona>
-        {{ graph|safe }}
+        <h4 style="text-align: center"><a href="{% url 'tarefas:quizzAval' %}"><strong>Quizz</strong></a> Graph</h4>
+        <div style="text-align: center">
+            {{ graph|safe }}
+        </div>
+    </sectiona>
+
+    <br>
+    <sectiona>
+        <h4 style="text-align: center"><a href="{% url 'tarefas:comentarios' %}"><strong>Comments</strong></a> Graph</h4>
+        <div style="text-align: center">
+            {{ graph|safe }}
+        </div>
     </sectiona>
 
 {% endblock %}
