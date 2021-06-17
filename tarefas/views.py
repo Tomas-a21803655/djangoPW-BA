@@ -195,3 +195,7 @@ def index_page_view(request):
 
 def avalPt2_page_view(request):
     return render(request, 'tarefas/avalPt2.html')
+
+
+def graphs_page_view(request):
+    return render(request, 'tarefas/graphs.html')

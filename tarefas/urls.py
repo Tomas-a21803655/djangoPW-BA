@@ -24,4 +24,6 @@ urlpatterns = [
     path('apagaCard/<int:card_id>', views.apaga_card_view, name='apagaCard'),
     path('editaCard/<int:card_id>', views.editUserCard_view, name='editaCard'),
     path('avalPt2/', views.avalPt2_page_view, name='avalPt2'),
+    path('graphs/', views.graphs_page_view, name='graphs'),
+
 ]
