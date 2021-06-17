@@ -48,7 +48,7 @@
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-light navColor">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'tarefas:index' %}">
+            <a class="navbar-brand" href="{% url 'tarefas:index' %}#banner">
                 <img alt="Buddy Abroad Nav Logo" class="buddyNavLogo"
                      src="{% static 'tarefas/images/redesign/buddyAbroadLogo.svg' %}">
             </a>
@@ -60,19 +60,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="{% url 'tarefas:index' %}#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#tutorial">Tutorial</a>
+                        <a class="nav-link" href="{% url 'tarefas:index' %}#tutorial">Tutorial</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#reviews">Reviews</a>
+                        <a class="nav-link" href="{% url 'tarefas:index' %}#reviews">Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#faq">F.A.Q</a>
+                        <a class="nav-link" href="{% url 'tarefas:index' %}#faq">F.A.Q</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="{% url 'tarefas:index' %}#contact">Contact</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
@@ -110,7 +110,8 @@
                             <li>
                                 <hr>
                             </li>
-                            <li><a class="dropdown-item" href="{% url 'tarefas:avalPt2' %}">Área de Avaliação Parte 2-3</a>
+                            <li><a class="dropdown-item" href="{% url 'tarefas:avalPt2' %}">Área de Avaliação Parte
+                                2-3</a>
                             </li>
                             <li><a class="dropdown-item" href="{% url 'tarefas:aval' %}">Área de Avaliação Parte 1</a>
                             </li>
