@@ -58,10 +58,7 @@ input[type=submit] {
 }
 
 .containerForm {
-    padding: 20px 48px;
-    margin: 2% 5%;
-    border-radius: 2%;
-    background-color: #f2f2f2;
+    padding: 20px;
 }
 
 /* Avaliação */

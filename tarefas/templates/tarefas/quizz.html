@@ -20,13 +20,13 @@
     </section>
 
     <section>
-        <div class="containerForm">
-            <form id="quizz" action="" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value="Send" class="btn btn-success">
-            </form>
-        </div>
+            <div class="containerForm card">
+                <form id="quizz" action="" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Send" class="btn btn-success">
+                </form>
+            </div>
     </section>
 
 
