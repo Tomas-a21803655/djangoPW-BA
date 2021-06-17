@@ -216,5 +216,7 @@ def graphs_page_view(request):
         data = imgdata.getvalue()
         return data
 
-    context = {'graph': return_graph()}
+    context = {'quizzGraph': return_graph(),
+               'commentGraph': return_graph()}
+
     return render(request, 'tarefas/graphs.html', context)
