@@ -7,6 +7,10 @@ from django.urls import reverse
 from .forms import ContactForm, CommentForm, QuizzForm, NetworkingForm, QuizzAvalForm, ComentariosForm
 from .models import Comment, Networking, QuizzAval
 
+import matplotlib.pyplot as plt
+from io import StringIO
+import numpy as np
+
 
 # Buddy Abroad Web
 def contacts_page_view(request):
@@ -198,4 +202,19 @@ def avalPt2_page_view(request):
 
 
 def graphs_page_view(request):
-    return render(request, 'tarefas/graphs.html')
+    def return_graph():
+        x = np.arange(0, np.pi * 3, .1)
+        y = np.sin(x)
+
+        fig = plt.figure()
+        plt.plot(x, y)
+
+        imgdata = StringIO()
+        fig.savefig(imgdata, format='svg')
+        imgdata.seek(0)
+
+        data = imgdata.getvalue()
+        return data
+
+    context = {'graph': return_graph()}
+    return render(request, 'tarefas/graphs.html', context)
