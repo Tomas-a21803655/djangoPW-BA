@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.db.models import Avg
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -27,10 +27,6 @@ def contacts_page_view(request):
 
 def aval_page_view(request):
     return render(request, 'tarefas/aval.html')
-
-
-def singlePageView_page_view(request):
-    return render(request, 'tarefas/singlePageView.html')
 
 
 def reviews_page_view(request):
@@ -312,3 +308,33 @@ def graphs_page_view(request):
                'commentGraph': comments_graph()}
 
     return render(request, 'tarefas/graphs.html', context)
+
+
+def spa_page_view(request):
+    return render(request, 'tarefas/spa.html')
+
+
+exampleToursData = [
+    "Gerês:Nature Hike:For those who wanted to travel there with only limited time, we decided to come up with a more "
+    "convenient way to maximize your trip as well as enjoy every minute of it. We have Gerês Tour - Hiking & "
+    "Sightseeing where in, you can experience the amazing exquisiteness of nature, traditional culture and the "
+    "friendly locals of the Peneda-Gerês National Park. Also, we included several interesting activities which will "
+    "lead you to the mountains, rivers, waterfalls and magnificent settings.",
+    "Coimbra:Sightseeing: RM Tour was born from the idea of transforming visits to the University of Coimbra into a "
+    "unique experience, transforming the guided tour into a pleasant experience of knowledge and cultural enrichment "
+    "in a way that is interesting. Therefore, we always seek in our company to join the beautiful history of the "
+    "University of Coimbra with the present and its customs that still permeate our institution today. This was all "
+    "made possible by the training we have in the areas of history, sociology and tourism. Our collaborators are "
+    "former students of the University of Coimbra which brings to our services a great appreciation and knowledge of "
+    "it.",
+    "Lisboa:Tuk-Tuk Ride:Do you want to see it all? Do you have time for a 3 hour tour? Then do "
+    "it. It is Alfama Tour + City Center Tour. A great overview of the city. Frequent travellers often choose this "
+    "tour for the best input interest information. Once you ride with us, you get inside the Portuguese culture, "
+    "the dynamic of the city and the useful tips that only the local guides can provide."]
+
+
+def section(request, num):
+    if 1 <= num <= 3:
+        return HttpResponse(exampleToursData[num - 1])
+    else:
+        raise Http404("No such section")

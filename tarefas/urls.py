@@ -10,7 +10,6 @@ urlpatterns = [
     # Buddy Abroad
     path('contacts/', views.contacts_page_view, name='contacts'),
     path('aval/', views.aval_page_view, name='aval'),
-    path('singlePageView/', views.singlePageView_page_view, name='singlePageView'),
     path('reviews/', views.reviews_page_view, name='reviews'),
     path('quizz/', views.quizz_page_view, name='quizz'),
     path('networking/', views.networking_page_view, name='networking'),
@@ -25,5 +24,6 @@ urlpatterns = [
     path('editaCard/<int:card_id>', views.editUserCard_view, name='editaCard'),
     path('avalPt2/', views.avalPt2_page_view, name='avalPt2'),
     path('graphs/', views.graphs_page_view, name='graphs'),
-
+    path('spa/', views.spa_page_view, name='spa'),
+    path("sections/<int:num>", views.section, name="section")
 ]
