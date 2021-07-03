@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from .forms import ContactForm, CommentForm, QuizzForm, NetworkingForm, QuizzAvalForm, ComentariosForm
-from .models import Comment, Networking, QuizzAval
+from .models import Comment, Networking, QuizzAval, Comentarios
 
 import matplotlib.pyplot as plt
 from io import StringIO
@@ -216,7 +216,32 @@ def graphs_page_view(request):
         data = imgdata.getvalue()
         return data
 
+    def comments_graph():
+        # Data
+        questions = ['Clareza', 'Rigor', 'Precisão', 'Profundidade', 'Amplitude', 'Lógica', 'Significância',
+                     'Originalidade']
+        marks = [sum(Comentarios.objects.all().values_list('clareza', flat=True)),
+                 sum(Comentarios.objects.all().values_list('rigor', flat=True)),
+                 sum(Comentarios.objects.all().values_list('precisao', flat=True)),
+                 sum(Comentarios.objects.all().values_list('profundidade', flat=True)),
+                 sum(Comentarios.objects.all().values_list('amplitude', flat=True)),
+                 sum(Comentarios.objects.all().values_list('logica', flat=True)),
+                 sum(Comentarios.objects.all().values_list('significancia', flat=True)),
+                 sum(Comentarios.objects.all().values_list('originalidade', flat=True)), ]
+        # Graph Creation
+        fig = plt.figure(figsize=(11, 5))
+        plt.bar(questions, marks)
+        plt.xlabel("Questions")
+        plt.ylabel("Sum. of marks given")
+
+        imgdata = StringIO()
+        fig.savefig(imgdata, format='svg')
+        imgdata.seek(0)
+
+        data = imgdata.getvalue()
+        return data
+
     context = {'quizzGraph': return_graph(),
-               'commentGraph': return_graph()}
+               'commentGraph': comments_graph()}
 
     return render(request, 'tarefas/graphs.html', context)
