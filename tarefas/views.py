@@ -202,13 +202,80 @@ def avalPt2_page_view(request):
 
 
 def graphs_page_view(request):
-    def return_graph():
-        x = np.arange(0, np.pi * 3, .1)
-        y = np.sin(x)
+    def quizz_graph():
+
+        quizzAnswerLayout = QuizzAval.objects.all().values_list('layout', flat=True)
+        correctThickLayout = []
+        for value in quizzAnswerLayout:
+            correctThickLayout.append(True if value == 'column' else False)
+
+        quizzAnswerBeAguide = QuizzAval.objects.all().values_list('beAguide', flat=True)
+        correctThickBeAguide = []
+        for value in quizzAnswerBeAguide:
+            correctThickBeAguide.append(True)
+
+        quizzAnswerNumberOfApps = QuizzAval.objects.all().values_list('numberOfApps', flat=True)
+        correctThickNumberOfApps = []
+        for value in quizzAnswerNumberOfApps:
+            correctThickNumberOfApps.append(True if value == 2 else False)
+
+        quizzAnswerPercentageOfPay = QuizzAval.objects.all().values_list('percentageOfPay', flat=True)
+        correctThickPercentageOfPay = []
+        for value in quizzAnswerPercentageOfPay:
+            correctThickPercentageOfPay.append(True if value == 30 else False)
+
+        quizzAnswerAvailablePlataforms = QuizzAval.objects.all().values_list('availablePlataforms', flat=True)
+        correctThickAvailablePlataforms = []
+        for value in quizzAnswerAvailablePlataforms:
+            correctThickAvailablePlataforms.append(True if value == True else False)
+
+        quizzAnswerHowManyDevs = QuizzAval.objects.all().values_list('howManyDevs', flat=True)
+        correctThickHowManyDevs = []
+        for value in quizzAnswerHowManyDevs:
+            correctThickHowManyDevs.append(True if value == 2 else False)
+
+        quizzAnswerAnimations = QuizzAval.objects.all().values_list('animations', flat=True)
+        correctThickAnimations = []
+        for value in quizzAnswerAnimations:
+            correctThickAnimations.append(True if value == 2 else False)
+
+        quizzAnswerAudioQuestion = QuizzAval.objects.all().values_list('audioQuestion', flat=True)
+        correctThickAudioQuestion = []
+        for value in quizzAnswerAudioQuestion:
+            correctThickAudioQuestion.append(True if value == True else False)
+
+        quizzAnswerDisciplina = QuizzAval.objects.all().values_list('disciplina', flat=True)
+        correctThickDisciplina = []
+        for value in quizzAnswerDisciplina:
+            correctThickDisciplina.append(True if value == 'trabalho final de curso' else False)
+
+        quizzAnswerDiff = QuizzAval.objects.all().values_list('diff', flat=True)
+        correctThickDiff = []
+        for value in quizzAnswerDiff:
+            correctThickDiff.append(True if value == 'trabalho final de curso' else False)
+
+        y = [
+            sum(x == True for x in correctThickLayout),
+            sum(x == True for x in correctThickBeAguide),
+            sum(x == True for x in correctThickNumberOfApps),
+            sum(x == True for x in correctThickPercentageOfPay),
+            sum(x == True for x in correctThickAvailablePlataforms),
+            sum(x == True for x in correctThickHowManyDevs),
+            sum(x == True for x in correctThickAnimations),
+            sum(x == True for x in correctThickAudioQuestion),
+            sum(x == True for x in correctThickDisciplina),
+            sum(x == True for x in correctThickDiff),
+        ]
+
+        print(y)
+
+        x = ['Q.1', 'Q.2', 'Q.3', 'Q.4', 'Q.5', 'Q.6', 'Q.7',
+             'Q.8', 'Q.9', 'Q.10']
 
         fig = plt.figure()
-        plt.plot(x, y)
-
+        plt.bar(x, y, color='green')
+        plt.xlabel("Question number")
+        plt.ylabel("Sum. of right answers")
         imgdata = StringIO()
         fig.savefig(imgdata, format='svg')
         imgdata.seek(0)
@@ -241,7 +308,7 @@ def graphs_page_view(request):
         data = imgdata.getvalue()
         return data
 
-    context = {'quizzGraph': return_graph(),
+    context = {'quizzGraph': quizz_graph(),
                'commentGraph': comments_graph()}
 
     return render(request, 'tarefas/graphs.html', context)
